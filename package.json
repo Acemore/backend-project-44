@@ -2,7 +2,9 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "Brain games, backend project # 1",
-  "main": "none",
+  "bin": {
+    "brain-games": "bin/brain-games.js"
+  },
   "scripts": {
     "test": "none"
   },
@@ -15,5 +17,6 @@
   "bugs": {
     "url": "https://github.com/acemore/backend-project-44/issues"
   },
+  "type": "module",
   "homepage": "https://github.com/acemore/backend-project-44#readme"
 }
