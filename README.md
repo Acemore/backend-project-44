@@ -3,3 +3,5 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/a65bf82031c963b06b2d/maintainability)](https://codeclimate.com/github/Acemore/backend-project-44/maintainability)
 
 [![asciicast](https://asciinema.org/a/4FA7XaJoDlkdc8lAV1QTRk8KY.svg)](https://asciinema.org/a/4FA7XaJoDlkdc8lAV1QTRk8KY)
+
+[![asciicast](https://asciinema.org/a/LW5ulstZDb2vBZ45u4g3J8FHL.svg)](https://asciinema.org/a/LW5ulstZDb2vBZ45u4g3J8FHL)
