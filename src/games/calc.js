@@ -1,36 +1,35 @@
-import { getRandomInt, getRandomOperator } from '../random-data.js';
+import {
+  getRandomInt,
+  getRandomOperator,
+  randomNumsGeneratorMinValue as min,
+  randomNumsGeneratorMaxValue as max,
+} from '../random-data.js';
 
 const rules = 'What is the result of the expression?';
 
-const getQuestion = () => {
-  const firstOperand = getRandomInt();
-  const secondOperand = getRandomInt();
+const getQuestionAndAnswer = () => {
+  const firstOperand = getRandomInt(min, max);
+  const secondOperand = getRandomInt(min, max);
   const operator = getRandomOperator();
 
-  return `${firstOperand} ${operator} ${secondOperand}`;
-};
+  const expr = `${firstOperand} ${operator} ${secondOperand}`;
 
-const getAnswer = (expr) => {
-  const [strFirstOperand, operator, strSecondOperand] = expr.split(' ');
-  const firstOperand = Number(strFirstOperand);
-  const secondOperand = Number(strSecondOperand);
-
-  let answer;
+  let correctAnswer;
   switch (operator) {
     case '+':
-      answer = firstOperand + secondOperand;
+      correctAnswer = firstOperand + secondOperand;
       break;
     case '-':
-      answer = firstOperand - secondOperand;
+      correctAnswer = firstOperand - secondOperand;
       break;
     case '*':
-      answer = firstOperand * secondOperand;
+      correctAnswer = firstOperand * secondOperand;
       break;
     default:
       break;
   }
 
-  return answer;
+  return [expr, String(correctAnswer)];
 };
 
-export { getAnswer, getQuestion, rules };
+export { getQuestionAndAnswer, rules };

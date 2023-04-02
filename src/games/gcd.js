@@ -1,19 +1,17 @@
-import { getRandomInt } from '../random-data.js';
+import {
+  getRandomInt,
+  randomNumsGeneratorMinValue as min,
+  randomNumsGeneratorMaxValue as max,
+} from '../random-data.js';
 
 const rules = 'Find the greatest common divisor of given numbers.';
 
-const getQuestion = () => {
-  const firstInt = getRandomInt();
-  const secondInt = getRandomInt();
-
-  return `${firstInt} ${secondInt}`;
-};
-
-const getAnswer = (nums) => {
-  const [strFirstNum, strSecondNum] = nums.split(' ');
-  const firstNum = Number(strFirstNum);
-  const secondNum = Number(strSecondNum);
+const getQuestionAndAnswer = () => {
+  const firstNum = getRandomInt(min, max);
+  const secondNum = getRandomInt(min, max);
   const minNum = Math.min(firstNum, secondNum);
+
+  const nums = `${firstNum} ${secondNum}`;
 
   let gcd = 1;
   for (let num = 2; num <= minNum; num += 1) {
@@ -22,7 +20,7 @@ const getAnswer = (nums) => {
     }
   }
 
-  return gcd;
+  return [nums, String(gcd)];
 };
 
-export { getAnswer, getQuestion, rules };
+export { getQuestionAndAnswer, rules };
