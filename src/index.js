@@ -10,11 +10,10 @@ const playGame = (game) => {
   console.log(game.rules);
 
   for (let roundNumber = 0; roundNumber < roundsCount; roundNumber += 1) {
-    const num = game.getQuestion();
+    const [num, correctAnswer] = game.getQuestionAndAnswer();
     console.log(`Question: ${num}`);
 
     const userAnswer = readlineSync.question('Your answer: ');
-    const correctAnswer = String(game.getAnswer(num));
 
     if (userAnswer !== correctAnswer) {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
