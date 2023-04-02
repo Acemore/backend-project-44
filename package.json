@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Brain games, backend project # 1",
   "bin": {
+    "brain-calc": "bin/brain-calc.js",
     "brain-even": "bin/brain-even.js",
     "brain-games": "bin/brain-games.js"
   },
@@ -21,6 +22,7 @@
   "type": "module",
   "homepage": "https://github.com/acemore/backend-project-44#readme",
   "dependencies": {
+    "lodash": "^4.17.21",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
