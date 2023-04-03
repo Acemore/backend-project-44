@@ -13,7 +13,7 @@ const getQuestionAndAnswer = () => {
 
   const nums = `${firstNum} ${secondNum}`;
 
-  let gcd;
+  let gcd = 1;
   if (firstNum !== 0 && secondNum !== 0) {
     for (let num = 2; num <= minNum; num += 1) {
       if (firstNum % num === 0 && secondNum % num === 0) {
