@@ -20,11 +20,14 @@ const isPrime = (num) => {
   return true;
 };
 
-const getQuestionAndAnswer = () => {
-  const num = getRandomInt(min, max);
-  const correctAnswer = isPrime(num) ? 'yes' : 'no';
+const getQuestion = () => getRandomInt(min, max);
+const getAnswer = (num) => (isPrime(num) ? 'yes' : 'no');
 
-  return [num, correctAnswer];
+const getQuestionAndAnswer = () => {
+  const question = getQuestion();
+  const correctAnswer = getAnswer(question);
+
+  return [question, correctAnswer];
 };
 
 export { getQuestionAndAnswer, rules };

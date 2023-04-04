@@ -7,14 +7,17 @@ import {
 
 const rules = 'What is the result of the expression?';
 
-const getQuestionAndAnswer = () => {
+const getQuestion = () => {
   const firstOperand = getRandomInt(min, max);
   const secondOperand = getRandomInt(min, max);
   const operator = getRandomOperator();
 
-  const expr = `${firstOperand} ${operator} ${secondOperand}`;
+  return [firstOperand, operator, secondOperand];
+};
 
+const getAnswer = (firstOperand, secondOperand, operator) => {
   let correctAnswer;
+
   switch (operator) {
     case '+':
       correctAnswer = firstOperand + secondOperand;
@@ -29,7 +32,17 @@ const getQuestionAndAnswer = () => {
       break;
   }
 
-  return [expr, String(correctAnswer)];
+  return correctAnswer;
+};
+
+const getQuestionAndAnswer = () => {
+  let question = getQuestion();
+  const [firstOperand, operator, secondOperand] = question;
+
+  question = question.join(' ');
+  const correctAnswer = getAnswer(firstOperand, secondOperand, operator);
+
+  return [question, String(correctAnswer)];
 };
 
 export { getQuestionAndAnswer, rules };

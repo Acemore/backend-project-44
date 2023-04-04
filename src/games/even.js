@@ -6,11 +6,14 @@ import {
 
 const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const getQuestionAndAnswer = () => {
-  const num = getRandomInt(min, max);
-  const correctAnswer = num % 2 === 0 ? 'yes' : 'no';
+const getQuestion = () => getRandomInt(min, max);
+const getAnswer = (num) => (num % 2 === 0 ? 'yes' : 'no');
 
-  return [num, correctAnswer];
+const getQuestionAndAnswer = () => {
+  const question = getQuestion();
+  const correctAnswer = getAnswer(question);
+
+  return [question, correctAnswer];
 };
 
 export { getQuestionAndAnswer, rules };

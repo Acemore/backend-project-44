@@ -9,24 +9,37 @@ const maxProgressionLen = 10;
 
 const rules = 'What number is missing in the progression?';
 
-const getQuestionAndAnswer = () => {
+const getProgression = () => {
   let progressionTerm = getRandomInt(minProgressionTerm, maxProgressionTerm);
   const progressionCommonDiff = getRandomInt(minProgressionCommonDiff, maxProgressionCommonDiff);
   const progressionLen = getRandomInt(minProgressionLen, maxProgressionLen);
-
   const progression = [];
+
   for (let i = 0; i < progressionLen; i += 1) {
     progression.push(progressionTerm);
     progressionTerm += progressionCommonDiff;
   }
 
-  const randomProgressionTermIndex = getRandomInt(0, progression.length - 1);
-  const hiddenTerm = progression[randomProgressionTermIndex];
-  progression[randomProgressionTermIndex] = '..';
+  return progression;
+};
 
-  const question = progression.join(' ');
+const getHiddenTermIndex = (progression) => getRandomInt(0, progression.length - 1);
 
-  return [question, String(hiddenTerm)];
+const getProgressionWithHiddenTerm = (progression, hiddenTermIndex) => {
+  const progressionCopy = progression.slice();
+  progressionCopy[hiddenTermIndex] = '..';
+
+  return progressionCopy.join(' ');
+};
+
+const getQuestionAndAnswer = () => {
+  const progression = getProgression();
+  const randomProgressionTermIndex = getHiddenTermIndex(progression);
+
+  const question = getProgressionWithHiddenTerm(progression, randomProgressionTermIndex);
+  const correctAnswer = progression[randomProgressionTermIndex];
+
+  return [question, String(correctAnswer)];
 };
 
 export { getQuestionAndAnswer, rules };
